@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Freshmen Underground</title>
+		<style media="screen">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			nav {
+				width: 100%;
+				height: 50px;
+				background: #21962d;
+			}
+			nav ul {
+				list-style-type: none;
+			}
+			nav ul li {
+				float: left;
+				padding-top: 12.5px;
+				box-sizing: border-box;
+			}
+			nav ul li a {
+				color: white;
+				text-decoration: none;
+				font-size: 20px;
+				margin-left: 15px;
+			}
+			nav ul li a:hover {
+				text-decoration: underline;
+			}
+			#accname {
+				position: absolute;
+				right: 15px;
+				cursor: pointer;
+			}
+			.coverbox {
+				display: none;
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				z-index: 50 !important;
+				background: rgba(0,0,0,0.4);
+			}
+			.coverbox div {
+				width: 400px;
+				height: 200px;
+				background: white;
+				left: calc(50% - 200px);
+				top: calc(50% - 250px);
+				position: absolute;
+				box-shadow: 2px 2px 16px rgba(0,0,0,0.6);
+				font-family: sans-serif;
+				box-sizing: border-box;
+				padding: 10px;
+				padding-left: 20px;
+				padding-right: 20px;
+				text-align: center;
+			}
+			.coverbox div h1 {
+				font-size: 48px;
+			}
+			.coverbox div button {
+				padding: 3px;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			#cuo, #cc {
+				color: blue;
+				position: absolute;
+				left: calc(50% + 150px);
+				top: calc(50% + 65px);
+				cursor: pointer;
+			}
+			#cuo:hover, #cc:hover {
+				text-decoration: underline;
+			}
+			.chatbox div {
+				width: 800px;
+				height: 600px;
+				background: white;
+				left: calc(50% - 400px);
+				top: calc(50% - 300px);
+			}
+			#cc {
+				left: calc(50% + 250px);
+				top: calc(50% - 275px);
+			}
+			</style>
+	</head>
+	<body onload=verifyLogin()>
+		<nav>
+			<ul>
+				<li><a id=accname onclick="useroptions()"><b>NOT LOGGED IN</b></a></li>
+				<li><a href="#">Home</a></li>
+				<li><a onclick="chat('show')">Chat</a></li>
+			</ul>
+		</nav>
+		<h1> Welcome to the SPHS Freshmen Underground Website!</h1>
+		<h3> This is where you can find homework answers, chat with friends, post about stuff, and probably more</h3><br><br>
+		<div id=login class=coverbox>
+			<div>
+				<h1>Log in</h1>Remember that this site is still in beta. This login is not finalised.<br><br>
+				First Name <input id=usernameinput></input><br><br>
+				<button onclick=login()>Log In</button>
+			</div>
+		</div>
+		<div id=useroptions class=coverbox>
+			<div>
+				<h1>User Options</h1><a id=cuo onclick=closeuseroptions()>close</a><br><br><br>
+				<button onclick=logout()>Log Out</button>
+			</div>
+		</div>
+		<div id=chatbox class="coverbox chatbox">
+			<div>
+				<h1>Chat</h1><a id=cc onclick="chat('hide')">close</a><br><br><br>
+				<embed src="https://tlk.io/sphsfreshmen" width=800px height=500px></embed>
+			</div>
+		</div>
+		<script type="text/javascript">
+			function verifyLogin() {
+				let user = window.localStorage.getItem("username");
+				if (user == null) {
+					document.getElementById("login").style.display = "block";
+				} else {
+					document.getElementById("accname").innerHTML = "<b>"+user+"</b>";
+				}
+			}
+			function login() {
+				let user = document.getElementById("usernameinput").value;
+				if (user == "") {
+					alert("Please input a valid name.");
+				} else {
+					window.localStorage.setItem("username", user);
+					document.getElementById("accname").innerHTML = "<b>"+user+"</b>";
+				}
+				location.reload();
+			}
+			function useroptions() {
+				document.getElementById("useroptions").style.display = "block";
+			}
+			function closeuseroptions() {
+				document.getElementById("useroptions").style.display = "none";
+			}
+			function logout() {
+				window.localStorage.removeItem("username");
+				location.reload();
+			}
+			function chat(a) {
+				if (a == "show") {
+					document.getElementById("chatbox").style.display = "block";
+				} else if (a == "hide") {
+					document.getElementById("chatbox").style.display = "none";
+				}
+			}
+		</script>
+	</body>
+</html>
