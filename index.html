@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;400;500;600;700&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Flex:opsz,wght@8..144,400;8..144,700;8..144,900;8..144,1000&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap" rel="stylesheet">
 	<head>
 		<meta charset="utf-8">
 		<title>Freshmen Underground</title>
 		<style media="screen">
+		@font-face {
+			font-family: asterisk;
+			src: url(cassets/font/fontello.otf);
+		}
 			* {
 				margin: 0;
 				padding: 0;
+				font-family: Roboto, sans-serif;
+				font-weight: 300;
+			}
+			h1 {
+				font-weight: 500;
+			}
+			h3 {	
+				font-weight: 400;
 			}
 			nav {
 				width: 100%;
@@ -26,6 +42,7 @@
 				text-decoration: none;
 				font-size: 20px;
 				margin-left: 15px;
+				cursor: pointer;
 			}
 			nav ul li a:hover {
 				text-decoration: underline;
@@ -34,6 +51,9 @@
 				position: absolute;
 				right: 15px;
 				cursor: pointer;
+			}
+			#login div, #signup div {
+				height: 250px;
 			}
 			.coverbox {
 				display: none;
@@ -44,6 +64,9 @@
 				z-index: 50 !important;
 				background: rgba(0,0,0,0.4);
 			}
+			#loading {
+				display: block;
+			}
 			.coverbox div {
 				width: 400px;
 				height: 200px;
@@ -52,7 +75,7 @@
 				top: calc(50% - 250px);
 				position: absolute;
 				box-shadow: 2px 2px 16px rgba(0,0,0,0.6);
-				font-family: sans-serif;
+				font-family: Roboto, sans-serif;
 				box-sizing: border-box;
 				padding: 10px;
 				padding-left: 20px;
@@ -88,23 +111,58 @@
 				left: calc(50% + 250px);
 				top: calc(50% - 275px);
 			}
+			#chatembedsm {
+				display: none;
+			}
+			#chatnav {
+				cursor: pointer;
+			}
+			@media only screen and (max-width: 800px) {
+				.chatbox div {
+					width: 300px;
+					height: 600px;
+					left: calc(50% - 150px);
+					top: calc(50% - 300px);
+				}
+				#chatembedlg {
+					display: none;
+				}
+				#chatembedsm {
+					display: block;
+				}
+				#cc {
+					left: calc(50% + 100px);
+					top: calc(50% - 275px);
+				}
+			}
+			#loading img {
+				width: 50px;
+			}
+			input {
+				font-family: asterisk, Roboto, sans-serif;
+			}
 			</style>
 	</head>
-	<body onload=verifyLogin()>
+	<body onload="login('1')">
 		<nav>
 			<ul>
 				<li><a id=accname onclick="useroptions()"><b>NOT LOGGED IN</b></a></li>
 				<li><a href="#">Home</a></li>
-				<li><a onclick="chat('show')">Chat</a></li>
+				<li><a onclick="chat('show')" id=chatnav>Chat</a></li>
+				<li><a onclick="notes('show')"> Notes &#9662;</a></li>
+				<li><a href="../planner/">Planner</a></li>
 			</ul>
 		</nav>
-		<h1> Welcome to the SPHS Freshmen Underground Website!</h1>
+		<h1> Welcome to  SPHS WorkHub!</h1>
 		<h3> This is where you can find homework answers, chat with friends, post about stuff, and probably more</h3><br><br>
 		<div id=login class=coverbox>
 			<div>
-				<h1>Log in</h1>Remember that this site is still in beta. This login is not finalised.<br><br>
-				First Name <input id=usernameinput></input><br><br>
-				<button onclick=login()>Log In</button>
+				<h1>Login</h1><br>Uses localStorage keys to store login info. No encryption yet.<br><br>
+				<input id=usernameinput placeholder=Username></input><br>
+				<input id=passwordinput placeholder=Password type=password></input><br>
+				<br>
+				<button onclick="login('2')">Log In</button>
+				<button onclick="login('signup1')">Sign Up</button>
 			</div>
 		</div>
 		<div id=useroptions class=coverbox>
@@ -113,31 +171,92 @@
 				<button onclick=logout()>Log Out</button>
 			</div>
 		</div>
+		<div id=notes class=coverbox>
+			<div>
+				<h1>Notes Links</h1><a id=cuo onclick="notes('hide')">close</a><br><br><br>
+				<a href=notes/preibfreshman/>Pre-IB Freshman</a>
+			</div>
+		</div>
+		<div id=loading class=coverbox>
+			<div>
+				<h1>Loading</h1><h3 id=loadingtext>loading</h3><br>
+				<img src=cassets/loading.gif></img>
+			</div>
+		</div>
+		<div id=signup class=coverbox>
+			<div>
+				<h1>Sign Up</h1><br>Uses localStorage keys to store login info. No encryption yet.<br><br>
+				<input id=newuser placeholder=Username></input><br>
+				<input id=newpass placeholder=Password type=password></input><br>
+				<input id=newpassv placeholder=Verify type=password></input><br>
+				<button onclick="login('signup2')">Sign Up</button>
+				<button onclick="login('reload')">Back</button>
+				<br>
+			</div>
+		</div>
 		<div id=chatbox class="coverbox chatbox">
 			<div>
 				<h1>Chat</h1><a id=cc onclick="chat('hide')">close</a><br><br><br>
-				<embed src="https://tlk.io/sphsfreshmen" width=800px height=500px></embed>
+				<embed src="https://tlk.io/sphsworkhub" width=800px height=500px id=chatembedlg></embed>
+				<embed src="https://tlk.io/sphsworkhub" width=300px height=500px id=chatembedsm></embed>
 			</div>
 		</div>
 		<script type="text/javascript">
-			function verifyLogin() {
-				let user = window.localStorage.getItem("username");
-				if (user == null) {
-					document.getElementById("login").style.display = "block";
-				} else {
-					document.getElementById("accname").innerHTML = "<b>"+user+"</b>";
-				}
-			}
-			function login() {
+		function login(stage) {
+			document.getElementById("loading").style.display = "none";
+			let savedUser = window.localStorage.getItem("user");
+			let savedPass = window.localStorage.getItem("pass");
+			if (stage == 1) {
+				document.getElementById("login").style.display = "block";
+			} else if (stage == 2) {
 				let user = document.getElementById("usernameinput").value;
-				if (user == "") {
-					alert("Please input a valid name.");
+				let pass = document.getElementById("passwordinput").value;
+				if (user == savedUser) {
+					if (pass == savedPass) {
+						document.getElementById("accname").innerHTML = savedUser;
+						document.getElementById("login").style.display = "none";
+					} else {
+						alert("Invalid password, try again");
+					}
 				} else {
-					window.localStorage.setItem("username", user);
-					document.getElementById("accname").innerHTML = "<b>"+user+"</b>";
+					alert("Invalid username, try again");
 				}
+			} else if (stage == 'signup1') {
+				if (savedUser != null) {
+					if (prompt("previous username") == savedUser) {
+						document.getElementById("signup").style.display = "block";
+						document.getElementById("login").style.display = "none";
+					} else {
+						alert("wrong username");
+					}
+				} else {
+					document.getElementById("signup").style.display = "block";
+					document.getElementById("login").style.display = "none";
+				}
+			} else if (stage == 'signup2') {
+				let newuser = document.getElementById("newuser").value;
+				let newpass = document.getElementById("newpass").value;
+				let newpassv = document.getElementById("newpassv").value;
+				if (newpassv == newpass) {
+					window.localStorage.setItem("user", newuser);
+					window.localStorage.setItem("pass", newpass);
+					location.reload();
+				} else {
+					alert("Could not verify password, try again");
+					location.reload();
+				}
+
+			} else if (stage == 'reload') {
 				location.reload();
 			}
+
+			else {
+				alert("INVALID_STAGE_ERROR");
+			}
+		}
+		function signup() {
+
+		}
 			function useroptions() {
 				document.getElementById("useroptions").style.display = "block";
 			}
@@ -153,6 +272,13 @@
 					document.getElementById("chatbox").style.display = "block";
 				} else if (a == "hide") {
 					document.getElementById("chatbox").style.display = "none";
+				}
+			}
+			function notes(a) {
+				if (a == "show") {
+					document.getElementById("notes").style.display = "block";
+				} else if (a == "hide") {
+					document.getElementById("notes").style.display = "none";
 				}
 			}
 		</script>
