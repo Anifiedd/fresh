@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title>Planner</title>
+		<style media="screen">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				table-layout: fixed;
+			}
+			td, th {
+				border: 1px solid black;
+			}
+			th {
+				height: 150px;
+			}
+			.top {
+				height: 20px;
+			}
+			button {
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body onload=drawCalendar()>
+		<table>
+			<tr>
+				<th class=top></th>
+				<th class=top>Sunday</th>
+				<th class=top>Monday</th>
+				<th class=top>Tuesday</th>
+				<th class=top>Wednesday</th>
+				<th class=top>Thursday</th>
+				<th class=top>Friday</th>
+				<th class=top>Saturday</th>
+			</tr>
+			<tr>
+				<th><span id=due1>x</span> assignments due</th>
+				<th class=notbold id=s11></th>
+				<th class=notbold id=s12></th>
+				<th class=notbold id=s13></th>
+				<th class=notbold id=s14></th>
+				<th class=notbold id=s15></th>
+				<th class=notbold id=s16></th>
+				<th class=notbold id=s17></th>
+			</tr>
+			<tr>
+				<th><span id=due1>x</span> assignments due</th>
+				<th class=notbold id=s21></th>
+				<th class=notbold id=s22></th>
+				<th class=notbold id=s23></th>
+				<th class=notbold id=s24></th>
+				<th class=notbold id=s25></th>
+				<th class=notbold id=s26></th>
+				<th class=notbold id=s27></th>
+			</tr>
+			<tr>
+				<th><span id=due1>x</span> assignments due</th>
+				<th class=notbold id=s31></th>
+				<th class=notbold id=s32></th>
+				<th class=notbold id=s33></th>
+				<th class=notbold id=s34></th>
+				<th class=notbold id=s35></th>
+				<th class=notbold id=s36></th>
+				<th class=notbold id=s37></th>
+			</tr>
+		</table>
+		<h1> work in progress</h1>
+		<button><a href=../>home</a></button>
+		<script>
+			function drawCalendar() {
+				const d = new Date()
+				let year = d.getFullYear();
+				let month = d.getMonth() + 1;
+				let date = d.getDate();
+				let day = d.getDay() + 1;
+				document.getElementById("s2"+day).innerHTML = date;
+				for (let i = day; i < 8; i++) {
+					document.getElementById("s2"+i).innerHTML = date + i - day;
+				}
+				for (let i = day; i > 0; i--) {
+					document.getElementById("s2"+i).innerHTML = date + i - day;
+				}
+				for (let i = 1; i < 8; i++) {
+					document.getElementById("s1"+i).innerHTML = date + i - day -7;
+				}
+				for (let i = 1; i < 8; i++) {
+					document.getElementById("s3"+i).innerHTML = date + i - day + 7;
+				}
+			}
+		</script>
+	</body>
+</html>
