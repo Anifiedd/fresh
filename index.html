@@ -21,7 +21,7 @@
 			h1 {
 				font-weight: 500;
 			}
-			h3 {	
+			h3 {
 				font-weight: 400;
 			}
 			nav {
@@ -150,7 +150,7 @@
 				<li><a href="#">Home</a></li>
 				<li><a onclick="chat('show')" id=chatnav>Chat</a></li>
 				<li><a onclick="notes('show')"> Notes &#9662;</a></li>
-				<li><a href="../planner/">Planner</a></li>
+				<li><a href="planner/">Planner</a></li>
 			</ul>
 		</nav>
 		<h1> Welcome to  SPHS WorkHub!</h1>
@@ -264,8 +264,11 @@
 				document.getElementById("useroptions").style.display = "none";
 			}
 			function logout() {
-				window.localStorage.removeItem("username");
+				let exc = confirm("press ok to DELETE ACCOUNT. you can make an account with the same credentials.")
+				if (exc == true) {
+				window.localStorage.removeItem("user");
 				location.reload();
+			}
 			}
 			function chat(a) {
 				if (a == "show") {
