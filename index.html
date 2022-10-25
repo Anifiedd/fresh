@@ -6,8 +6,54 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa:wght@300;400;500;600;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lobster&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Prata&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Flex:opsz,wght@8..144,400;8..144,700;8..144,900;8..144,1000&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&family=Varela&display=swap" rel="stylesheet">
 	<head>
 		<meta charset="utf-8">
-		<title>Freshmen Underground</title>
+		<title>deWork</title>
 		<style media="screen">
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/book.ttf);
+			font-style: normal;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/bookitalic.ttf);
+			font-style: italic;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/medium.ttf);
+			font-weight: medium;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/medium.ttf);
+			font-weight: medium;
+			font-style: italic;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/light.ttf);
+			font-weight: lighter;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/lightitalic.ttf);
+			font-weight: lighter;
+			font-style: italic;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/bold.ttf);
+			font-weight: bold;
+			font-style: normal;
+		}
+		@font-face {
+			font-family: spotify;
+			src: url(cassets/spotify-font/bolditalic.ttf);
+			font-weight: bold;
+			font-style: italic;
+		}
 		@font-face {
 			font-family: asterisk;
 			src: url(cassets/font/fontello.otf);
@@ -42,8 +88,8 @@
 			nav {
 				width: 100%;
 				height: 50px;
-				background: #059907;
-				box-shadow: 0px 0px 20px #060;
+				background: #004F93;
+				box-shadow: 0px 0px 20px #002B50;
 				z-index: 5;
 				margin-bottom: 10px;
 				font-weight: 400;
@@ -71,10 +117,11 @@
 				transition: 100ms;
 				font-weight: 400;
 				margin-left: 4px;
+				font-weight: 300;
 			}
 			nav ul li a:hover {
-				background: #008702;
-				box-shadow: 0px 0px 12px #006b02;
+				background: #0574bb;
+				box-shadow: 0px 0px 12px rgba(6, 133, 207, 0.7);
 			}
 			#accname {
 				position: absolute;
@@ -120,7 +167,7 @@
 				padding-left: 10px;
 				padding-right: 10px;
 			}
-			#cuo, #cc {
+			#cuo, #cc, #rc {
 				color: grey;
 				position: absolute;
 				left: calc(50% + 130px);
@@ -132,7 +179,7 @@
 				transition: 100ms;
 				font-weight: 400;
 			}
-			#cuo:hover, #cc:hover {
+			#cuo:hover, #cc:hover, #rc:hover {
 				background: #eee;
 				box-shadow: 0px 2px 6px rgba(66, 66, 66, 0.3);
 			}
@@ -197,20 +244,134 @@
 			input:focus::placeholder {
 				color: #006;
 			}
+			.news {
+				width: 100%;
+				height: 550px;
+				background: #ddd;
+				overflow: scroll;
+			}
+			.voidabliss {
+				width: 100%;
+				height: 380px;
+				background: rgb(51,9,52);
+				background: linear-gradient(0deg, rgba(51,9,52,1) 0%, rgba(173,29,173,1) 100%);
+				display: flex;
+				align-items: center;
+				padding-left: 35px;
+				box-sizing: border-box;
+				font-family: spotify, sans-serif;
+				color: white;
+				position: relative;
+			}
+			.d40space {
+				width: 40px;
+			}
+			#reddit div {
+				height: 600px;
+				width: 400px;
+				padding: 0;
+				top: calc(50% - 300px);
+				background: white;
+			}
+			#reddit div div {
+				width: 400px;
+				height: 600px;
+				text-align: center;
+			}
+			#reddit div div embed {
+				overflow: scroll;
+			}
+			#rc {
+				right: calc(50% - 150px);
+				top: calc(50% - 300px);
+				width: 50px;
+			}
+			#playpause {
+				width: 70px;
+				right: 50px;
+				bottom: 50px;
+				position: absolute;
+				cursor: pointer;
+				border-radius: 35px;
+				transition: 500ms;
+			}
+			#playpause:hover {
+				box-shadow: -4px 4px 5px rgba(0,0,0,0.3);
+				right: 51px;
+				bottom: 53px;
+			}
+			#mobilemenu {
+				display: none;
+			}
+			@media only screen and (max-width: 800px) {
+				.slideout {
+					display: none;
+				}
+				#mobilemenu {
+					display: block;
+					font-size: 30px;
+					margin-top: -10px;
+				}
+			}
+			.mobilemenu {
+				width: 60%;
+				position: fixed;
+				left: 0;
+				top: 0;
+				height: 100%;
+				background: white;
+				z-index: 20 !important;
+				box-shadow: 0px 0px 30px rgba(0,0,0,0.5);
+				display: none;
+				box-sizing: border-box;
+				padding: 30px;
+			}
+			.mobilemenu ul li {
+				list-style-type: none;
+				margin-top: 25px;
+				width: calc(100% - 30px);
+			}
+			.mobilemenu ul li a {
+				padding-left: 12px;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				width: 100%;
+				cursor: pointer;
+				color: black;
+				text-decoration: none;
+				display: block;
+				transition: 150ms;
+			}
+			.mobilemenu ul li a:hover {
+				background: #0574bb;
+				color: white;
+				box-shadow: 1px 1px 5px rgba(0,0,0,0.3)
+			}
+			.mobilemenu h2 a {
+				cursor: pointer;
+			}
 			</style>
+			<link rel="stylesheet" type=text/css href="cassets/spotify-font.css">
 	</head>
 	<body onload="login('1')">
 		<nav>
 			<ul>
 				<li><a id=accname onclick="useroptions()"><b>NOT LOGGED IN</b></a></li>
-				<li><a href="#">HOME</a></li>
-				<li><a onclick="chat('show')" id=chatnav>CHAT</a></li>
-				<li><a onclick="notes('show')"> NOTES &#9662;</a></li>
-				<li><a href="planner/">PLANNER</a></li>
+				<li><a id=mobilemenu onclick='menu("open")'>&#9776;</a></li>
+				<li><a href="#" class=slideout>HOME</a></li>
+				<li><a onclick="chat('show')" id=chatnav class=slideout>CHAT</a></li>
+				<li><a onclick="reddit('show')" id=chatnav class=slideout>REDDIT</a></li>
+				<li><a onclick="notes('show')" class=slideout>HOMEWORK HELP &#9662;</a></li>
+				<li><a href="planner/" class=slideout>PLANNER</a></li>
+				<li><a href="benton/" class=slideout>BENTON</a></li>
 			</ul>
 		</nav>
-		<h1> Welcome to  SPHS WorkHub!</h1>
-		<h3> This is where you can find homework answers, chat with friends, post about stuff, and probably more</h3><br><br>
+	<a class="weatherwidget-io" href="https://forecast7.com/en/27d79n82d63/33704/?unit=us" data-label_1="ST. PETERSBURG" data-label_2="FLORIDA" data-font="Roboto" data-icons="Climacons" data-theme="weather_one" >ST. PETERSBURG FLORIDA</a>
+<script>
+!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+</script>
+		<h1> Welcome to deWork!</h1>
+		<h3> This is where you can find help with homework, chat with friends, post about stuff, and more!</h3><br><br>
 		<div id=login class=coverbox>
 			<div>
 				<h1>Login</h1><br>Uses localStorage keys to store login info. No encryption yet.<br><br>
@@ -230,16 +391,43 @@
 		</div>
 		<div id=notes class=coverbox>
 			<div>
-				<h1>Notes Links</h1><a id=cuo onclick="notes('hide')">CLOSE</a><br><br><br>
+				<h1>Help</h1><a id=cuo onclick="notes('hide')">CLOSE</a><br><br><br>
 				<a href=notes/preibfreshman/>Pre-IB Freshman</a>
 			</div>
 		</div>
-		<div id=loading class=coverbox>
-			<div>
-				<h1>Loading</h1><h3 id=loadingtext>loading</h3><br>
-				<img src=cassets/loading.gif></img>
-			</div>
+
+		<div class="news">
+			<rssapp-wall id="pZAwnPrXRxwCVkHR"></rssapp-wall><script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>
+		</div><br><br><h1>Featured Song</h1><br>
+		<div class=voidabliss><div>
+			<img src="https://i.scdn.co/image/ab67616d00001e02af6f88eb22ebb75dcf6b7cb6" alt="void abliss logo"></img>
 		</div>
+		<div class=d40space></div>
+		<div>
+		<h1 style="font-size: 48px;">Void abliss</h1>
+		<h3 style="font-size: 24px;">Clos08</h3><br><br><br><br>
+	</div>
+
+		<a id=playpausea onclick="song('1')"><img id=playpause src="cassets/sPlay.png"></img></a>
+		<audio controls>
+			<source src=cassets/voidabliss.mp3>
+		</audio>
+	</div>
+
+
+
+	<div id=loading class=coverbox>
+		<div>
+			<h1>Loading</h1><h3 id=loadingtext>loading</h3><br>
+			<img src=cassets/loading.gif></img>
+		</div>
+	</div>
+	<div id=reddit class=coverbox>
+		<div><div>
+			<h2>reddit /r/all</h2><a id=rc onclick="reddit('hide')">close</a>
+			 <embed width=400px height=500px src=cassets/reddit.html></embed>
+		</div></div>
+	</div>
 		<div id=signup class=coverbox>
 			<div>
 				<h1>Sign Up</h1><br>Uses localStorage keys to store login info. No encryption yet.<br>
@@ -254,11 +442,29 @@
 		<div id=chatbox class="coverbox chatbox">
 			<div>
 				<h1>Chat</h1><a id=cc onclick="chat('hide')">close</a><br><br><br>
-				<embed src="https://embed.tlk.io/sphsworkhub" width=800px height=500px id=chatembedlg data-theme="theme--minimal"></embed>
-				<div id="tlkio" data-channel="spworkhub" data-theme="theme--minimal" style="width:300px;height:500px;" class=tlkiostyles></div><script async src="http://tlk.io/embed.js" type="text/javascript"></script>
+				<embed src=https://tlk.io/dework/ width=800px height=500px></embed>
 			</div>
 		</div>
+		<div class="mobilemenu" id=mobilemenud>
+			<h2><a onclick='menu("close")' style="font-size: 16px;margin-right: 20px;">&#65336;</a> Menu <span style="font-size: 24px;">&#8250;</span></h2><br><br><br>
+			<ul>
+				<li><a href="#">HOME</a></li>
+				<li><a onclick="chat('show')" id=chatnav>CHAT</a></li>
+				<li><a onclick="reddit('show')" id=chatnav>REDDIT</a></li>
+				<li><a onclick="notes('show')">HOMEWORK HELP &#9662;</a></li>
+				<li><a href="planner/">PLANNER</a></li>
+				<li><a href="planner/">BENTON</a></li>
+			</ul>
+		</div>
 		<script type="text/javascript">
+		function menu(a) {
+			if (a == "open") {
+				document.getElementById("mobilemenud").style.display = "block"
+			}
+			if (a == "close") {
+				document.getElementById("mobilemenud").style.display = "none"
+			}
+		}
 		function reset() {
 			window.localstorage.setItem("user", "asdf");
 			window.localstorage.setItem("pass", "asdf");
@@ -267,6 +473,11 @@
 			document.getElementById("loading").style.display = "none";
 			let savedUser = window.localStorage.getItem("user");
 			let savedPass = window.localStorage.getItem("pass");
+			let logged = window.sessionStorage.getItem("logged");
+			if (logged == 1) {
+				document.getElementById("accname").innerHTML = savedUser;
+				document.getElementById("login").style.display = "none";
+			} else {
 			if (stage == 1) {
 				document.getElementById("login").style.display = "block";
 			} else if (stage == 2) {
@@ -275,15 +486,15 @@
 				if (user == savedUser) {
 					if (pass == savedPass) {
 						document.getElementById("accname").innerHTML = savedUser;
-						document.getElementById("tlkio").dataset.nickname = savedUser;
 						document.getElementById("login").style.display = "none";
+						window.sessionStorage.setItem("logged", 1)
 					} else {
 						alert("Invalid password, try again");
 					}
 				} else {
 					alert("Invalid username, try again");
 				}
-			} else if (stage == 'signup1') {
+ 			} else if (stage == 'signup1') {
 				if (savedUser != null) {
 					if (prompt("previous username") == savedUser) {
 						document.getElementById("signup").style.display = "block";
@@ -316,6 +527,7 @@
 				alert("INVALID_STAGE_ERROR");
 			}
 		}
+	}
 		function signup() {
 
 		}
@@ -346,6 +558,25 @@
 					document.getElementById("notes").style.display = "none";
 				}
 			}
+			function reddit(a) {
+				if (a == "show") {
+					document.getElementById("reddit").style.display = "block";
+				} else if (a == "hide") {
+					document.getElementById("reddit").style.display = "none";
+				}
+			}
 		</script>
+		<script>
+		function song(a) {
+			if (a == 1) {
+			document.getElementById("playpause").setAttribute("src", "cassets/sPause.png");
+			document.getElementById("playpausea").setAttribute("onclick", "song('2')");
+			document.getElementById("voidablissaudio").play();
+		} else if (a == 2) {
+			document.getElementById("playpause").setAttribute("src", "cassets/sPlay.png");
+			document.getElementById("playpausea").setAttribute("onclick", "song('1')");
+	}}
+		</script>
+		<footer><br>site version 1.1. developed by riley clos.<br><span style=color:white;>a</span></footer>
 	</body>
 </html>
