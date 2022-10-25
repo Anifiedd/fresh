@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
+                
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,7 +261,7 @@
 				align-items: center;
 				padding-left: 35px;
 				box-sizing: border-box;
-				font-family: spotify, sans-serif;
+				font-family: "spotify", sans-serif !important;
 				color: white;
 				position: relative;
 			}
@@ -312,6 +314,38 @@
 					font-size: 30px;
 					margin-top: -10px;
 				}
+				.voidabliss {
+					display: block;
+					text-align: center;
+					height: 450px;
+				}
+				.voidabliss div {
+					margin: 0;
+					padding: 0;
+					position: absolute;
+					width: 100%;
+					height: 100%;
+				}
+				.voidabliss img {
+					position: absolute;
+					left: calc(50% - 125px);
+					width: 200px;
+					margin-top: 25px;
+				}
+				.voidabliss #playpause {
+					left: calc(50% - 25px);
+					position: absolute;
+					top: 315px;
+				}
+				.voidabliss #playpause:hover {
+					left: calc(50% - 23px) !important;
+					top: 314px !important;
+				}
+				.voidabliss div div {
+					position: absolute;
+					top: 235px;
+					left: -5%;
+				}
 			}
 			.mobilemenu {
 				width: 60%;
@@ -349,6 +383,9 @@
 			}
 			.mobilemenu h2 a {
 				cursor: pointer;
+			}
+			#voidablissaudio {
+				display: none;
 			}
 			</style>
 			<link rel="stylesheet" type=text/css href="cassets/spotify-font.css">
@@ -403,13 +440,13 @@
 			<img src="https://i.scdn.co/image/ab67616d00001e02af6f88eb22ebb75dcf6b7cb6" alt="void abliss logo"></img>
 		</div>
 		<div class=d40space></div>
-		<div>
+		<div><div>
 		<h1 style="font-size: 48px;">Void abliss</h1>
 		<h3 style="font-size: 24px;">Clos08</h3><br><br><br><br>
-	</div>
+	</div></div>
 
 		<a id=playpausea onclick="song('1')"><img id=playpause src="cassets/sPlay.png"></img></a>
-		<audio controls>
+		<audio controls id=voidablissaudio>
 			<source src=cassets/voidabliss.mp3>
 		</audio>
 	</div>
@@ -575,6 +612,7 @@
 		} else if (a == 2) {
 			document.getElementById("playpause").setAttribute("src", "cassets/sPlay.png");
 			document.getElementById("playpausea").setAttribute("onclick", "song('1')");
+			document.getElementById("voidablissaudio").pause();
 	}}
 		</script>
 		<footer><br>site version 1.1. developed by riley clos.<br><span style=color:white;>a</span></footer>
