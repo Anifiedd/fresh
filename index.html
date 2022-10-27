@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+<link rel="apple-touch-startup-image" href="launch.png">
+<meta name="apple-mobile-web-app-title" content="deWork">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="../basic.css">
 <link href="http://fonts.cdnfonts.com/css/gotham" rel="stylesheet">
-                
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +72,9 @@
 				cursor: default;
 				outline: none;
 			}
+			body {
+				overflow-x: hidden;
+			}
 			button {
 				border: none;
 				background: #4af;
@@ -123,10 +130,7 @@
 			}
 			nav ul li a:hover {
 				background: #0574bb;
-				box-shadow: 0px 0px 12px rgba(6, 133, 207, 0.7);
-			}
-			body {
-				overflow-x: hidden;
+				box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 			}
 			#accname {
 				position: absolute;
@@ -404,7 +408,6 @@
 				<li><a onclick="notes('show')" class=slideout>HOMEWORK HELP &#9662;</a></li>
 				<li><a href="planner/" class=slideout>PLANNER</a></li>
 				<li><a href="benton/" class=slideout>BENTON</a></li>
-				<li><a href="https://anifiedd.github.io/bg-test-server/" class=slideout>GAMES</a></li>
 			</ul>
 		</nav>
 	<a class="weatherwidget-io" href="https://forecast7.com/en/27d79n82d63/33704/?unit=us" data-label_1="ST. PETERSBURG" data-label_2="FLORIDA" data-font="Roboto" data-icons="Climacons" data-theme="weather_one" >ST. PETERSBURG FLORIDA</a>
@@ -494,8 +497,7 @@
 				<li><a onclick="reddit('show')" id=chatnav>REDDIT</a></li>
 				<li><a onclick="notes('show')">HOMEWORK HELP &#9662;</a></li>
 				<li><a href="planner/">PLANNER</a></li>
-				<li><a href="planner/">BENTON</a></li>
-				<li><a href="https://anifiedd.github.io/bg-test-server/">GAMES</a></li>
+				<li><a href="benton/">BENTON</a></li>
 			</ul>
 		</div>
 		<script type="text/javascript">
@@ -620,6 +622,6 @@
 			document.getElementById("voidablissaudio").pause();
 	}}
 		</script>
-		<footer><br>site version 1.1. developed by riley clos.<br><span style=color:white;>a</span></footer>
+		<footer><br>site version 1.2. developed by riley clos.<br><span style=color:white;>hello :)</span></footer>
 	</body>
 </html>
